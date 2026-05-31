@@ -1,4 +1,7 @@
-//version: v1.0.0
+//version: v1.1
+//copyright: ©aiyou2026
+//QQ: 2235894707
+//Email: aiyou1a2a3a4a@qq.com
 #include<bits/stdc++.h>
 #include<Windows.h>
 #define blue 1
@@ -23,7 +26,7 @@ using namespace std;
 typedef long long ll;
 const string C_O_I_N = "gaedkl35nw~)+Eb12,mfr*&./Q";
 const string CN1 = "0abcdefg";
-const string ac_SET = "0123456789ABCDEF";
+const string ac_SET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef";
 const string shop_SET = "0123456789";
 void colorclear(HANDLE handle){
 	scolor(handle,white);
@@ -41,7 +44,7 @@ void qd(HWND hWnd){
 	MessageBox(hWnd,"该功能暂未实现,敬请期待!","敬请期待",MB_OK | MB_ICONERROR);
 	return ;
 }
-void logon(HANDLE handle){
+void logo(HANDLE handle){
 	scolor(handle,light_yellow);
 	cout << "新";
 	colorclear(handle);
@@ -58,7 +61,7 @@ void logon(HANDLE handle){
 	cout << "戏" << endl;
 	colorclear(handle);
 }
-void logo(HANDLE handle){
+void logo_new_year(HANDLE handle){
 	scolor(handle,(6 << 4) | 14);
 	cout << "◎";
 	scolor(handle,(6 << 4) | 13);
@@ -107,7 +110,7 @@ char shop_change(int* shop){
 	}
 	return shop_SET[S % shop_SET.size()];
 }
-string out(int coin,int zj1,int* ac,int* shop){
+string out(int coin,int zj1,int zj2,int* ac,int* shop){
 	string str = "";
 	char a = coin / 10;
 	for(int i = 0;i < 26;i++){
@@ -118,11 +121,12 @@ string out(int coin,int zj1,int* ac,int* shop){
 	}
 	str += CN1[zj1];
 	int sum = 0;
-	for(int i = 0;i < 2;i++){
+	for(int i = 0;i < 3;i++){
 		sum += ac[i];
 	}
 	str += ac_change(ac);
 	str += shop_change(shop);
+	str += CN1[zj2];
 	return str;
 }
 int in_coin(string in){
